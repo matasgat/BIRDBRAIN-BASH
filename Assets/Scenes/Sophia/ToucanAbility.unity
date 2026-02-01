@@ -1052,7 +1052,7 @@ MonoBehaviour:
   leftPlayer2: {fileID: 1319189939}
   rightPlayer1: {fileID: 7895200595781189983}
   rightPlayer2: {fileID: 1667581929}
-  scoreManager: {fileID: 18352593}
+  scoreManager: {fileID: 0}
   gameState: 0
   lastHit: {fileID: 0}
   server: {fileID: 0}
@@ -1276,25 +1276,6 @@ MonoBehaviour:
   onLeft: 0
   ballManager: {fileID: 18352594}
   interactionRadius: 2
-  inputActionAsset: {fileID: 0}
---- !u!114 &1180581314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7895200595781189983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8d4e2e6aff8b4245811c0e5020de2c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dashCooldown: 0
-  dashDuration: 0.5
-  dashSpeed: 10
-  rotationSpeed: 8
-  penguinHeight: 0
-  isDashing: 0
 --- !u!1 &1184703061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1461,7 +1442,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9e1523b09a65bd14e8a3ec8b0d85dbc4, type: 2}
+  - {fileID: 2100000, guid: 146cb8e1752730b44a57a0e5eaab322c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1799,10 +1780,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 474434965365313902, guid: 4ba165af8099f0f41aaf098aa2996310, type: 3}
-      propertyPath: grounded
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 474434965365313902, guid: 4ba165af8099f0f41aaf098aa2996310, type: 3}
       propertyPath: jumpForce
       value: 6
       objectReference: {fileID: 0}
@@ -1893,11 +1870,11 @@ PrefabInstance:
       addedObject: {fileID: 189267998}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7342613359322326940, guid: 4ba165af8099f0f41aaf098aa2996310, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1180581302}
+      insertIndex: 3
+      addedObject: {fileID: 7895200595781189989}
     - targetCorrespondingSourceObject: {fileID: 7342613359322326940, guid: 4ba165af8099f0f41aaf098aa2996310, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1180581314}
+      addedObject: {fileID: 1180581302}
   m_SourcePrefab: {fileID: 100100000, guid: 4ba165af8099f0f41aaf098aa2996310, type: 3}
 --- !u!4 &3982437791737217892 stripped
 Transform:
@@ -1909,6 +1886,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7342613359322326940, guid: 4ba165af8099f0f41aaf098aa2996310, type: 3}
   m_PrefabInstance: {fileID: 610045261700163267}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7895200595781189989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7895200595781189983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7ce7393f3be4e14887b4f803a969e6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 5
+  buffAmount: 2
+  buffLength: 2
+  gameManager: {fileID: 614297107}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
