@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class ToucanDefensive : MonoBehaviour
 {
-
     [SerializeField]
     public float cooldown; // Cooldown in seconds
     [SerializeField]
@@ -11,8 +10,14 @@ public class ToucanDefensive : MonoBehaviour
     [SerializeField]
     public int buffLength; // Amount of time in seconds the buff lasts
     public GameManager gameManager;
+    private bool _onLeft;
 
     private bool onCooldown = false;
+
+    public void Start()
+    {
+        _onLeft = GetComponent<BallInteract>().onLeft;
+    }
 
     public void TouCanDoIt()
     {
@@ -21,15 +26,29 @@ public class ToucanDefensive : MonoBehaviour
             Debug.Log("Tou-Can Do It!!! :D");
 
             GameObject teammate = null;
-            GameObject rightPlayer1 = gameManager.rightPlayer1;
-            GameObject rightPlayer2 = gameManager.rightPlayer2;
 
-            if (rightPlayer1 != this)
+            if (_onLeft)
             {
-                teammate = rightPlayer1;
+                GameObject leftPlayer1 = gameManager.leftPlayer1;
+                GameObject leftPlayer2 = gameManager.leftPlayer2;
+                if (leftPlayer1 != this)
+                {
+                    teammate = leftPlayer1;
+                } else
+                {
+                    teammate = leftPlayer2;
+                }
             } else
             {
-                teammate = rightPlayer2;
+                GameObject rightPlayer1 = gameManager.rightPlayer1;
+                GameObject rightPlayer2 = gameManager.rightPlayer2;
+                if (rightPlayer1 != this)
+                {
+                    teammate = rightPlayer1;
+                } else
+                {
+                    teammate = rightPlayer2;
+                }
             }
 
             teammate.GetComponent<CharacterMovement>().BuffStats(buffAmount, buffLength);
